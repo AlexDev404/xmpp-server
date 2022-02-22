@@ -38,7 +38,7 @@
       "pem": "~1.7.2",
       "pg": "4.3.0",
       "pg-hstore": "2.3.2",
-      "sequelize": "2.0.0-rc8",
+      "sequelize": "6.1.0",
       "socket.io": "2.4.x",
       "strip-json-comments": "~1.0.2",
       "superagent": "~0.21.0",
