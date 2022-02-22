@@ -39,7 +39,7 @@
       "pg": "4.3.0",
       "pg-hstore": "2.3.2",
       "sequelize": "2.0.0-rc8",
-      "socket.io": "0.9.x",
+      "socket.io": "2.4.x",
       "strip-json-comments": "~1.0.2",
       "superagent": "~0.21.0",
       "ws": "0.7.1"
