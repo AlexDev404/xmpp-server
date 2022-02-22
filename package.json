@@ -25,7 +25,7 @@
       "engine.io": "1.5.1",
       "express": "4.12.3",
       "ldapjs": "0.7.1",
-      "lodash": "3.7.0",
+      "lodash": "4.17.21",
       "ltx": "0.8.0",
       "nconf": "~0.7.1",
       "node-pre-gyp": "^0.17.0",
