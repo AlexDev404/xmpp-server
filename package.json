@@ -46,7 +46,7 @@
       "ws": "8.5.0"
    },
    "devDependencies": {
-      "grunt": "~1.4.1",
+      "grunt": "~1.5.3",
       "grunt-contrib-jshint": "~3.2.0",
       "grunt-mocha-cli": "~7.0.0",
       "grunt-mocha-istanbul": "^5.0.2",
