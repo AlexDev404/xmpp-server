@@ -56,7 +56,7 @@
       "node-xmpp-client": "1.0.0-alpha23",
       "should": "13.2.3",
       "sqlite3": "https://github.com/mapbox/node-sqlite3/tarball/master",
-      "supertest": "6.2.2"
+      "supertest": "6.2.4"
    },
    "scripts": {
       "test": "grunt test",
