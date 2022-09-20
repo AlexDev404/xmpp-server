@@ -31,7 +31,7 @@
       "nconf": "~0.12.0",
       "node-pre-gyp": "^0.17.0",
       "node-uuid": "~1.4.2",
-      "node-xmpp-core": "~1.0.0",
+      "node-xmpp-core": "~5.0.9",
       "node-xmpp-server": "~1.0.0",
       "passport": "0.6.0",
       "passport-http": "~0.3.0",
