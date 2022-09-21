@@ -8,19 +8,19 @@ var assert = require('assert'),
   helper = require('./_helper/helper');
 
 // Xep Components
-var Rfc3921Roaster = require('../lib/components/Core/modules/Rfc3921-roaster');
+var Rfc3921Roster = require('../lib/components/Core/modules/Rfc3921-roster');
 
 function configureXEP(server) {
   // register messaging component
-  server.cr.addComponent(new Rfc3921Roaster({
+  server.cr.addComponent(new Rfc3921Roster({
     storage: server.storage
   }));
 }
 
-function generateRoasterStanza(jid, el, id) {
-  id = id ||  'roaster_add';
+function generateRosterStanza(jid, el, id) {
+  id = id ||  'roster_add';
   // generate 
-  var roaster = new ltx.Element('iq', {
+  var roster = new ltx.Element('iq', {
     to: 'example.net',
     from: jid,
     type: 'set',
@@ -29,11 +29,11 @@ function generateRoasterStanza(jid, el, id) {
     'xmlns': 'jabber:iq:roster'
   }).cnode(el);
 
-  return roaster.root();
+  return roster.root();
 }
 
 describe('Rfc3921', function () {
-  describe('Roaster', function () {
+  describe('Roster', function () {
 
     var srv = null;
 
@@ -89,7 +89,7 @@ describe('Rfc3921', function () {
      */
     it('7.3. Retrieving One\'s Roster on Login', function (done) {
 
-      var id = 'roaster_1';
+      var id = 'roster_1';
       // generate 
       var stanza = new ltx.Element('iq', {
         to: 'example.net',
@@ -132,12 +132,12 @@ describe('Rfc3921', function () {
      *
      */
 
-    it('7.4. Adding a Roaster Item with empty item', function (done) {
-      var id = 'add-roaster-empty';
+    it('7.4. Adding a Roster Item with empty item', function (done) {
+      var id = 'add-roster-empty';
       var el = ltx.parse("<item></item>");
       var returnType = 'error';
 
-      var stanza = generateRoasterStanza(helper.userJulia.jid, el, id);
+      var stanza = generateRosterStanza(helper.userJulia.jid, el, id);
 
       helper.sendMessageWithRomeo(stanza.root()).then(function (stanza) {
         try {
@@ -154,11 +154,11 @@ describe('Rfc3921', function () {
     });
 
     it('7.4. Adding a Roster Item', function (done) {
-      var id = 'add-roaster-item';
+      var id = 'add-roster-item';
       var el = ltx.parse("<item jid='julia@example.net'></item>");
       var returnType = 'result';
 
-      var stanza = generateRoasterStanza(helper.userJulia.jid, el, id);
+      var stanza = generateRosterStanza(helper.userJulia.jid, el, id);
 
       helper.sendMessageWithRomeo(stanza.root()).then(function (stanza) {
         try {
@@ -175,11 +175,11 @@ describe('Rfc3921', function () {
     });
 
     it('7.5. Updating a Roster Item with name', function (done) {
-      var id = 'update-roaster-item';
+      var id = 'update-roster-item';
       var el = ltx.parse("<item jid='julia@example.net' name='Julia'></item>");
       var returnType = 'result';
 
-      var stanza = generateRoasterStanza(helper.userJulia.jid, el, id);
+      var stanza = generateRosterStanza(helper.userJulia.jid, el, id);
 
       helper.sendMessageWithRomeo(stanza.root()).then(function (stanza) {
         try {
@@ -196,11 +196,11 @@ describe('Rfc3921', function () {
     });
 
     it('7.5. Updating a Roster Item with one group', function (done) {
-      var id = 'update-roaster-group';
+      var id = 'update-roster-group';
       var el = ltx.parse("<item jid='julia@example.net' name='Julia'><group>Lovers</group></item>");
       var returnType = 'result';
 
-      var stanza = generateRoasterStanza(helper.userJulia.jid, el, id);
+      var stanza = generateRosterStanza(helper.userJulia.jid, el, id);
 
       helper.sendMessageWithRomeo(stanza.root()).then(function (stanza) {
         try {
@@ -217,11 +217,11 @@ describe('Rfc3921', function () {
     });
 
     it('7.5. Updating a Roster Item with two groups', function (done) {
-      var id = 'update-roaster-groups';
+      var id = 'update-roster-groups';
       var el = ltx.parse("<item jid='julia@example.net' name='Julia'><group>Lovers</group><group>Friends</group></item>");
       var returnType = 'result';
 
-      var stanza = generateRoasterStanza(helper.userJulia.jid, el, id);
+      var stanza = generateRosterStanza(helper.userJulia.jid, el, id);
 
       helper.sendMessageWithRomeo(stanza.root()).then(function (stanza) {
         try {
@@ -237,9 +237,9 @@ describe('Rfc3921', function () {
       });
     });
 
-    // list roaster items
+    // list roster items
     it('Retrieving  Roster', function (done) {
-      var id = 'list-roaster-groups';
+      var id = 'list-roster-groups';
       // generate 
       var stanza = new ltx.Element('iq', {
         to: 'example.net',
@@ -257,7 +257,7 @@ describe('Rfc3921', function () {
           assert.equal(stanza.attrs.type, 'result');
           assert.equal(stanza.attrs.id, id);
 
-          // <iq from="example.net" to="romeo@example.net/4661483000366298" id="roaster_2" type="result"><query xmlns="jabber:iq:roster">
+          // <iq from="example.net" to="romeo@example.net/4661483000366298" id="roster_2" type="result"><query xmlns="jabber:iq:roster">
           // <item jid="julia@example.net" name="Julia" subscription="none"><group>Lovers</group><group>Friends</group></item></query></iq>
           var query = stanza.root().getChild('query', 'jabber:iq:roster');
           query.should.not.be.empty;
@@ -288,11 +288,11 @@ describe('Rfc3921', function () {
      * </iq>
      */
     /*it('7.6. Deleting a Roster Item', function (done) {
-        var id = 'delete-roaster-item';
+        var id = 'delete-roster-item';
         var el = ltx.parse("<item jid='julia@example.net' subscription='remove'></item>");
         var returnType = 'result';
 
-        var stanza = generateRoasterStanza(helper.userJulia.jid, el, id);
+        var stanza = generateRosterStanza(helper.userJulia.jid, el, id);
 
         helper.sendMessageWithRomeo(stanza.root()).then(function(stanza){
             try {

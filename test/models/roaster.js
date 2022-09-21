@@ -58,7 +58,7 @@ describe('Model', function () {
 
     });
 
-    it('john adds alice to the roaster', function (done) {
+    it('john adds alice to the roster', function (done) {
 
       db.User.find({
         where: {
@@ -72,7 +72,7 @@ describe('Model', function () {
           }
         }).then(function (alice) {
 
-          john.addRoaster(alice, {
+          john.addRoster(alice, {
             name: 'ms. a',
             group: 'friends',
             subscription: 'none'

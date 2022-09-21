@@ -5,7 +5,7 @@
    "author": "Christoph Hartmann <chris@lollyrock.com>",
    "scripts": {
       "test": "grunt test",
-      "start": "node bin/radiowave settings/settings.json"
+      "start": "nodemon bin/radiowave settings/settings.json"
    },
    "keywords": [
       "xmpp",
@@ -37,6 +37,7 @@
       "node-uuid": "~1.4.2",
       "node-xmpp-core": "~1.0.0",
       "node-xmpp-server": "~1.0.0",
+      "nodemon": "^2.0.20",
       "passport": "0.5.2",
       "passport-http": "~0.3.0",
       "passport-http-bearer": "~1.0.1",

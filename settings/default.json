@@ -14,7 +14,7 @@
     "components": [{
         "type": "Core",
         "modules": [
-            "roaster",
+            "roster",
             "messaging",
             "Xep0030",
             "Xep0092",
