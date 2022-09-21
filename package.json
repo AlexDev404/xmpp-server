@@ -3,6 +3,10 @@
    "description": "lightweight xmpp server library",
    "version": "0.7.0",
    "author": "Christoph Hartmann <chris@lollyrock.com>",
+   "scripts": {
+      "test": "grunt test",
+      "start": "node bin/radiowave settings/settings.json"
+   },
    "keywords": [
       "xmpp",
       "server",
@@ -57,9 +61,5 @@
       "should": "13.2.3",
       "sqlite3": "https://github.com/mapbox/node-sqlite3/tarball/master",
       "supertest": "6.2.2"
-   },
-   "scripts": {
-      "test": "grunt test",
-      "start": "node bin/radiowave settings/settings.json"
    }
 }

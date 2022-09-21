@@ -7,7 +7,7 @@
     // },
     // runs api and engineio on a subpath url 
     // e.g. http://example.com/subpath instead of http://example.com/
-    // "subpath": "",
+    // "subpath": "api",
     // should be "development" or "production"
     "environment": "development",
     // load various radiowave components
