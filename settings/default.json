@@ -1,72 +1,71 @@
 {
-    // xmpp domain
-    "domain": "localhost",
-    // configures the client endpoint e.g. if radiowave is deployed behind a proxy
-    // "http": {
-    //    "host": "http://localhost"
-    // },
-    // runs api and engineio on a subpath url 
-    // e.g. http://example.com/subpath instead of http://example.com/
-    // "subpath": "",
-    // should be "development" or "production"
+    "domain": "127.0.0.1",
     "environment": "development",
-    // load various radiowave components
-    "components": [{
-        "type": "Core",
-        "modules": [
-            "roster",
-            "messaging",
-            "Xep0030",
-            "Xep0092",
-            "Xep0199",
-            "Xep0049",
-            "Xep0016"
-        ]
-    }, {
-        "type": "Xep0045",
-        "subdomain": "conference"
-    }, {
-        "type": "Xep0060",
-        "subdomain": "pubsub"
-    }],
-    // load the connection manager
-    "connection": [{
-        "type": "tcp",
-        "port": 5222,
-        "interface": "0.0.0.0"
-    }, {
-        "type": "bosh",
-        "port": 5280,
-        "path": "http-bind",
-        "interface": "0.0.0.0"
-    }, {
-        "type": "websocket",
-        "port": 5281,
-        "interface": "0.0.0.0"
-    }, {
-        "type": "engineio",
-        "port": 8889,
-        "interface": "0.0.0.0"
-    }],
-    // sets the authentication mechanism
-    "auth": [{
-        "type": "simple",
-        "testusers": true,
-        "users": [{
-            "user": "romeo",
-            "password": "romeo"
-        }, {
-            "user": "mercutio",
-            "password": "mercutio"
-        }, {
-            "user": "benvolio",
-            "password": "benvolio"
-        }]
-    }],
-    // storage for the data, radiowave supports
-    // sqlite, postgres and mysql
-    // configuration will be ignored, if a postgres 
-    // database is linked via docker
+    "components": [
+        {
+            "type": "Core",
+            "modules": [
+                "roster",
+                "messaging",
+                "Xep0030",
+                "Xep0092",
+                "Xep0199",
+                "Xep0049",
+                "Xep0016"
+            ]
+        },
+        {
+            "type": "Xep0045",
+            "subdomain": "conference"
+        },
+        {
+            "type": "Xep0060",
+            "subdomain": "pubsub"
+        }
+    ],
+    "connection": [
+        {
+            "type": "tcp",
+            "port": 5222,
+            "interface": "0.0.0.0"
+        },
+        {
+            "type": "bosh",
+            "port": 5280,
+            "path": "http-bind",
+            "interface": "0.0.0.0"
+        },
+        {
+            "type": "websocket",
+            "port": 5281,
+            "interface": "0.0.0.0"
+        },
+        {
+            "type": "engineio",
+            "port": 8889,
+            "interface": "0.0.0.0"
+        }
+    ],
+    "auth": [
+        {
+            "type": "simple",
+            "testusers": true,
+            "users": [
+                {
+                    "user": "romeo",
+                    "password": "romeo"
+                },
+                {
+                    "user": "mercutio",
+                    "password": "mercutio"
+                },
+                {
+                    "user": "benvolio",
+                    "password": "benvolio"
+                }
+            ]
+        }
+    ],
     "storage": {
         "dialect": "sqlite",
         "user": "username",
@@ -74,13 +73,13 @@
         "database": "radiowave",
         "storage": "./radiowave.sqlite"
     },
-    // api and cors settings
     "api": {
         "activate": true,
         "port": 8080,
         "cors": {
-            // do not use * in production
-            "hosts": ["*"]
+            "hosts": [
+                "*"
+            ]
         }
     }
 }
