@@ -35,19 +35,15 @@ processes = []
     port = 443
 
   [[services.ports]]
-    force_https = false
     port = 5222
 
   [[services.ports]]
-    force_https = false
     port = 5280
 
   [[services.ports]]
-    force_https = false
     port = 5281
 
   [[services.ports]]
-    force_https = false
     port = 8889
 
   [[services.tcp_checks]]
