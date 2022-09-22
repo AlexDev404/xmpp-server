@@ -35,6 +35,7 @@ processes = []
     port = 443
 
   [[services.ports]]
+    handlers = ["http"]
     port = 5222
 
   [[services.ports]]
