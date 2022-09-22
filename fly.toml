@@ -11,7 +11,7 @@ processes = []
 [env]
 
 [experimental]
-  allowed_public_ports = []
+  allowed_public_ports = [80, 443, 5222, 5280, 5281, 8889]
   auto_rollback = true
 
 [[services]]
