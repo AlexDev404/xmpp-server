@@ -1,6 +1,6 @@
 {
     // xmpp domain
-    "domain": "127.0.0.1",
+    "domain": "radiowave.fly.dev",
     // configures the client endpoint e.g. if radiowave is deployed behind a proxy
     // "http": {
     //    "host": "http://localhost"
