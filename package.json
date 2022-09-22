@@ -5,7 +5,8 @@
    "author": "Christoph Hartmann <chris@lollyrock.com>",
    "scripts": {
       "test": "grunt test",
-      "start": "nodemon bin/radiowave settings/settings.json"
+      "start": "node bin/radiowave settings/settings.json",
+      "start-dev": "nodemon bin/radiowave settings/settings.json"
    },
    "keywords": [
       "xmpp",
