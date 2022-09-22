@@ -18,7 +18,7 @@ processes = []
   http_checks = []
   internal_port = 8080
   processes = ["app"]
-  protocol = ["tcp", "udp"]
+  protocol = "tcp"
   script_checks = []
   [services.concurrency]
     hard_limit = 25
@@ -55,5 +55,5 @@ processes = []
   [[services.tcp_checks]]
     grace_period = "1s"
     interval = "15s"
-    restart_limit = 0
+    restart_limit = 3
     timeout = "2s"
