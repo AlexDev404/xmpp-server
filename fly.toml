@@ -41,12 +41,6 @@ processes = []
     port = 5280
 
   [[services.ports]]
-    port = 9031
-
-  [[services.ports]]
-    port = 9030
-
-  [[services.ports]]
     port = 5281
 
   [[services.ports]]
