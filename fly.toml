@@ -38,12 +38,15 @@ processes = []
     port = 5222
 
   [[services.ports]]
+    handlers = ["http"]
     port = 5280
 
   [[services.ports]]
+    handlers = ["http"]
     port = 5281
 
   [[services.ports]]
+    handlers = ["http"]
     port = 8889
 
   [[services.tcp_checks]]
