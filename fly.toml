@@ -11,14 +11,14 @@ processes = []
 [env]
 
 [experimental]
-  allowed_public_ports = [80, 443, 5222, 5280, 5281, 8889]
+  allowed_public_ports = [80, 443, 5222, 5280, 9031, 9030, 5281, 8889]
   auto_rollback = true
 
 [[services]]
   http_checks = []
   internal_port = 8080
   processes = ["app"]
-  protocol = "tcp"
+  protocol = ["tcp", "udp"]
   script_checks = []
   [services.concurrency]
     hard_limit = 25
@@ -38,15 +38,18 @@ processes = []
     port = 5222
 
   [[services.ports]]
-    handlers = ["http"]
     port = 5280
 
   [[services.ports]]
-    handlers = ["http"]
+    port = 9031
+
+  [[services.ports]]
+    port = 9030
+
+  [[services.ports]]
     port = 5281
 
   [[services.ports]]
-    handlers = ["http"]
     port = 8889
 
   [[services.tcp_checks]]
